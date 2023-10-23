@@ -1,11 +1,11 @@
-GIT_BRANCH="2.7.3"
+GIT_BRANCH="v2.7.3"
 
 # first step: clone harbor ARM code
 git clone https://github.com/goharbor/harbor-arm.git
 
 # execute build command：Download harbor source code
 cd harbor-arm
-git clone --branch release-${GIT_BRANCH} https://github.com/goharbor/harbor.git src/github.com/goharbor/harbor
+git clone --branch ${GIT_BRANCH} https://github.com/goharbor/harbor.git src/github.com/goharbor/harbor
 
 # compile redis:
 make compile_redis
