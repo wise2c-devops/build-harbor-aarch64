@@ -4,7 +4,7 @@
 TARGET_REPO_PREFIX="alanpeng"
 
 # 需要排除的关键字数组
-EXCLUDE_KEYWORDS=("golang" "alpine")  # 你可以根据需要添加或删除关键字
+EXCLUDE_KEYWORDS=("golang" "node" "alpine")  # 你可以根据需要添加或删除关键字
 
 # 获取所有容器镜像
 IMAGES=$(docker images --format "{{.Repository}}:{{.Tag}}")
@@ -28,11 +28,11 @@ for IMAGE in $IMAGES; do
     fi
 
     # 获取镜像的名称和标签
-    REPO=$(echo $IMAGE | cut -d ':' -f 1)
+    REPO_NAME=$(echo $IMAGE | cut -d ':' -f 1 | rev | cut -d '/' -f 1 | rev)  # 这里我们反转字符串，以便从最后一个'/'分割，然后再次反转回来
     TAG=$(echo $IMAGE | cut -d ':' -f 2)
 
     # 生成新的镜像名称和标签
-    NEW_IMAGE="${TARGET_REPO_PREFIX}/${REPO}:$TAG"
+    NEW_IMAGE="${TARGET_REPO_PREFIX}/${REPO_NAME}:$TAG"
 
     # 打印信息
     echo "Tagging $IMAGE as $NEW_IMAGE"
