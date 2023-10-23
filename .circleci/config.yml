@@ -1,0 +1,43 @@
+jobs:
+  build-branches:
+    environment:
+      Harbor_Git_Tag: 'main'
+    machine: true
+    resource_class: arm.medium
+    steps:
+      - checkout
+      - run:
+          name: Build a container image
+          command: |
+            bash build-harbor-aarch64.sh
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+            docker images
+            #docker tag goharbor/prepare:arm-dev alanpeng/prepare:${Harbor_Git_Tag}
+            #docker push alanpeng/grafana:${Harbor_Git_Tag}
+  build-tags:
+    environment:
+      Harbor_Git_Tag: 'main'
+    machine: true
+    resource_class: arm.medium
+    steps:
+      - checkout
+      - run:
+          name: Build a container image
+          command: |
+            bash build-harbor-aarch64.sh
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+            #docker tag goharbor/prepare:arm-dev alanpeng/prepare:${Harbor_Git_Tag}
+            #docker push alanpeng/grafana:${Harbor_Git_Tag}
+workflows:
+  version: 2
+  build-for-branches:
+    jobs:
+      - build-branches
+  build-for-tags:
+    jobs:
+      - build-tags:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
