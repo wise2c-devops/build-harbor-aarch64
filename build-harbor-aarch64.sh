@@ -1,4 +1,4 @@
-GIT_BRANCH="v2.8.4"
+GIT_BRANCH="v2.7.2"
 
 # first step: clone harbor ARM code
 git clone https://github.com/goharbor/harbor-arm.git
