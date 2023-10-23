@@ -1,2 +1,2 @@
 FROM scratch
-COPY harbor_images_aarch64.tar /
+COPY harbor-offline-installer-aarch64.tgz /
