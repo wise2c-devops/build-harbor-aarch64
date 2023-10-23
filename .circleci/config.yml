@@ -21,7 +21,7 @@ jobs:
             sed -i 's#goharbor/prepare:dev#goharbor/prepare:dev-arm#g' all-in-one/harbor/prepare
             cd all-in-one
             chmod +x harbor/prepare harbor/install.sh
-            tar zcf harbor-offline-installer-${Harbor_Git_Tag}.tgz harbor
+            tar zcf harbor-offline-installer-aarch64.tgz harbor
             rm -rf harbor
             docker build -t alanpeng/harbor_images_aarch64:$Harbor_Git_Tag .
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
@@ -49,7 +49,7 @@ jobs:
             sed -i 's#goharbor/prepare:dev#goharbor/prepare:dev-arm#g' all-in-one/harbor/prepare
             cd all-in-one
             chmod +x harbor/prepare harbor/install.sh
-            tar zcf harbor-offline-installer-${Harbor_Git_Tag}.tgz harbor
+            tar zcf harbor-offline-installer-aarch64.tgz harbor
             rm -rf harbor
             docker build -t alanpeng/harbor_images_aarch64:$Harbor_Git_Tag .
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
