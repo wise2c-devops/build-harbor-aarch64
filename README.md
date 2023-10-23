@@ -10,7 +10,7 @@ docker pull alanpeng/harbor_images_aarch64:v2.7.2
 
 创建一个新的容器实例
 ```
-TEMP_CONTAINER_ID=$(docker create alanpeng/harbor_images_aarch64:v2.7.2)
+TEMP_CONTAINER_ID=$(docker create alanpeng/harbor_images_aarch64:v2.7.2 /bin/true)
 ```
 
 从容器中拷贝文件
