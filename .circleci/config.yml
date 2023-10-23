@@ -1,7 +1,7 @@
 jobs:
   build-branches:
     environment:
-      Harbor_Git_Tag: 'main'
+      Harbor_Git_Tag: 'v2.7.2'
     machine: true
     resource_class: arm.medium
     steps:
@@ -12,11 +12,15 @@ jobs:
             bash build-harbor-aarch64.sh
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker images
-            #docker tag goharbor/prepare:arm-dev alanpeng/prepare:${Harbor_Git_Tag}
-            #docker push alanpeng/grafana:${Harbor_Git_Tag}
+            bash get-images.sh
+            docker save $(docker images --format "{{.Repository}}:{{.Tag}}" | grep "^goharbor/") -o all-in-one/harbor_images_aarch64.tar
+            cd all-in-one
+            docker build -t alanpeng/harbor_images_aarch64:$Harbor_Git_Tag .
+            docker push alanpeng/harbor_images_aarch64:$Harbor_Git_Tag
+
   build-tags:
     environment:
-      Harbor_Git_Tag: 'main'
+      Harbor_Git_Tag: 'v2.7.2'
     machine: true
     resource_class: arm.medium
     steps:
@@ -26,8 +30,12 @@ jobs:
           command: |
             bash build-harbor-aarch64.sh
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-            #docker tag goharbor/prepare:arm-dev alanpeng/prepare:${Harbor_Git_Tag}
-            #docker push alanpeng/grafana:${Harbor_Git_Tag}
+            docker images
+            bash get-images.sh
+            docker save $(docker images --format "{{.Repository}}:{{.Tag}}" | grep "^goharbor/") -o all-in-one/harbor_images_aarch64.tar
+            cd all-in-one
+            docker build -t alanpeng/harbor_images_aarch64:$Harbor_Git_Tag .
+            docker push alanpeng/harbor_images_aarch64:$Harbor_Git_Tag
 workflows:
   version: 2
   build-for-branches:
