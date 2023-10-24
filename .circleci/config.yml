@@ -12,7 +12,7 @@ jobs:
             bash build-harbor-aarch64.sh
             docker images
             mkdir all-in-one/harbor
-            docker save $(docker images --format "{{.Repository}}:{{.Tag}}" | grep "^goharbor/") | gzip > all-in-one/harbor/harbor.${Harbor_Git_Tag}.tar.gz
+            docker save $(docker images --format "{{.Repository}}:{{.Tag}}" | grep "^goharbor/"| grep "\-arm") | gzip > all-in-one/harbor/harbor.${Harbor_Git_Tag}.tar.gz
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/LICENSE -o all-in-one/harbor/LICENSE
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/make/common.sh -o all-in-one/harbor/common.sh
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/make/harbor.yml.tmpl -o all-in-one/harbor/harbor.yml.tmpl
