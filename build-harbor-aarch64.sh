@@ -3,6 +3,9 @@ GIT_BRANCH="v2.7.2"
 # first step: clone harbor ARM code
 git clone https://github.com/goharbor/harbor-arm.git
 
+# Replace dev-arm image tag
+sed -i "s#dev-arm#${GIT_BRANCH}-arm#g" harbor-arm/Makefile
+
 # execute build command：Download harbor source code
 cd harbor-arm
 git clone --branch ${GIT_BRANCH} https://github.com/goharbor/harbor.git src/github.com/goharbor/harbor
