@@ -30,7 +30,7 @@ docker rm $TEMP_CONTAINER_ID
 
 以正常方式安装Harbor ARM64 Version
 ```
-tar zcf harbor-offline-installer-aarch64.tgz
+tar zxf harbor-offline-installer-aarch64.tgz
 cd harbor
 cp harbor.yml.tmpl harbor.yml
 ```
