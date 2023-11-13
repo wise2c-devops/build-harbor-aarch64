@@ -10,7 +10,9 @@ sed -i "s#dev-arm#${GIT_BRANCH}-arm#g" harbor-arm/Makefile
 cd harbor-arm
 git clone --branch ${GIT_BRANCH} https://github.com/goharbor/harbor.git src/github.com/goharbor/harbor
 
-# Fix the issue of "missing separator (did you mean TAB instead of 8 spaces?"
+# Fix the issue of "missing separator (did you mean TAB instead of 8 spaces?)"
+sed -i 's/^[ ]\+/\t/g' harbor/Makefile
+sed -i 's/^[ ]\+/^I/g' harbor/Makefile
 sed -i 's/^[ ]\+/\t/g' harbor/make/photon/Makefile
 sed -i 's/^[ ]\+/^I/g' harbor/make/photon/Makefile
 
