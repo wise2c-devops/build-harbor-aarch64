@@ -12,6 +12,7 @@ git clone --branch ${GIT_BRANCH} https://github.com/goharbor/harbor.git src/gith
 
 # Fix the issue of "missing separator (did you mean TAB instead of 8 spaces?"
 sed -i 's/^[ ]\+/\t/g' harbor/make/photon/Makefile
+sed -i 's/^[ ]\+/^I/g' harbor/make/photon/Makefile
 
 # compile redis:
 make compile_redis
