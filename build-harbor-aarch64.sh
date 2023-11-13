@@ -10,19 +10,9 @@ sed -i "s#dev-arm#${GIT_BRANCH}-arm#g" harbor-arm/Makefile
 cd harbor-arm
 git clone --branch ${GIT_BRANCH} https://github.com/goharbor/harbor.git src/github.com/goharbor/harbor
 
-mkdir v2.7.2
-cd v2.7.2
-git clone --branch v2.7.2 https://github.com/goharbor/harbor.git src/github.com/goharbor/harbor
-cd harbor
-#rm -f ../../harbor/Makefile
-rm -f ../../harbor/make/photon/Makefile
-#cp Makefile ../../harbor/Makefile
-cp make/photon/Makefile ../../harbor/make/photon/Makefile
-cd ../../
-
 # Fix the issue of "missing separator (did you mean TAB instead of 8 spaces?)"
-#sed -i 's/^[[:space:]]*/	/g' harbor/Makefile
-#sed -i 's/^[[:space:]]*/        /g' harbor/make/photon/Makefile
+sed -i 's/^[[:space:]]*/	/g' src/github.com/goharbor/harbor/Makefile
+sed -i 's/^[[:space:]]*/        /g' src/github.com/goharbor/harbor/make/photon/Makefile
 
 # compile redis:
 make compile_redis
