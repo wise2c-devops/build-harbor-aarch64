@@ -4,17 +4,17 @@ Build an offline-deployable Harbor version for ARM64 architecture.
 How to get the harbor-offline-installer-aarch64 package?
 
 ### Option1 （方法一）
-直接从该项目的Release页面下载完整的离线包文件harbor-offline-installer-aarch64-v2.7.2.tgz
+直接从该项目的Release页面下载完整的离线包文件harbor-offline-installer-aarch64-v2.9.1.tgz
 
 ### Option2 （方法二）
 下载离线镜像包
 ```
-docker pull alanpeng/harbor_images_aarch64:v2.7.2
+docker pull alanpeng/harbor_images_aarch64:v2.9.1
 ```
 
 创建一个新的容器实例
 ```
-TEMP_CONTAINER_ID=$(docker create alanpeng/harbor_images_aarch64:v2.7.2 /bin/true)
+TEMP_CONTAINER_ID=$(docker create alanpeng/harbor_images_aarch64:v2.9.1 /bin/true)
 ```
 
 从容器中拷贝文件
