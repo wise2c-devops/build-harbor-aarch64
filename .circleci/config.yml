@@ -1,7 +1,7 @@
 jobs:
   build-branches:
     environment:
-      Harbor_Git_Tag: 'v2.7.2'
+      Harbor_Git_Tag: 'v2.7.4'
     machine: true
     resource_class: arm.medium
     steps:
@@ -30,7 +30,7 @@ jobs:
             #bash get-images.sh
   build-tags:
     environment:
-      Harbor_Git_Tag: 'v2.7.2'
+      Harbor_Git_Tag: 'v2.7.4'
     machine: true
     resource_class: arm.medium
     steps:
