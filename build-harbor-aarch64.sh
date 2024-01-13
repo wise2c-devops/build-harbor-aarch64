@@ -1,4 +1,4 @@
-GIT_BRANCH="v2.10.0"
+GIT_BRANCH="v2.7.3"
 
 # first step: clone harbor ARM code
 git clone https://github.com/goharbor/harbor-arm.git
@@ -23,4 +23,4 @@ make pre_update
 make compile COMPILETAG=compile_golangimage
 
 # Build harbor arm image:
-make build GOBUILDTAGS="include_oss include_gcs" BUILDBIN=true NOTARYFLAG=false TRIVYFLAG=true CHARTFLAG=false GEN_TLS=true PULL_BASE_FROM_DOCKERHUB=true
+make build GOBUILDTAGS="include_oss include_gcs" BUILDBIN=true NOTARYFLAG=true TRIVYFLAG=true CHARTFLAG=true GEN_TLS=true PULL_BASE_FROM_DOCKERHUB=false
