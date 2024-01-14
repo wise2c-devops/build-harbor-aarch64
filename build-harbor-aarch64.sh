@@ -15,7 +15,7 @@ cd harbor-multi-arch
 make all
 
 cd ..
-mkdir src/github.com/goharbor/
+mkdir -p src/github.com/goharbor/
 mv harbor-multi-arch/harbor src/github.com/goharbor/
 
 # compile redis:
