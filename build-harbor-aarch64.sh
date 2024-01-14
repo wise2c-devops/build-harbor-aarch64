@@ -15,22 +15,20 @@ cd harbor-multi-arch
 make all
 
 cd ..
-make build GOBUILDTAGS="include_oss include_gcs" BUILDBIN=true NOTARYFLAG=false TRIVYFLAG=true CHARTFLAG=false GEN_TLS=true PULL_BASE_FROM_DOCKERHUB=false
-
-#mv harbor ..
-#cd ..
+mkdir src/github.com/goharbor/
+mv harbor-multi-arch/harbor src/github.com/goharbor/
 
 # compile redis:
-#make compile_redis
+make compile_redis
 
 # Prepare to build arm architecture image data:
-#make prepare_arm_data
+make prepare_arm_data
 
 # Replace build arm image parameters：
-#make pre_update
+make pre_update
 
 # Compile harbor components:
-#make compile COMPILETAG=compile_golangimage
+make compile COMPILETAG=compile_golangimage
 
 # Build harbor arm image:
-#make build GOBUILDTAGS="include_oss include_gcs" BUILDBIN=true NOTARYFLAG=false TRIVYFLAG=true CHARTFLAG=false GEN_TLS=true PULL_BASE_FROM_DOCKERHUB=false
+make build GOBUILDTAGS="include_oss include_gcs" BUILDBIN=true NOTARYFLAG=false TRIVYFLAG=true CHARTFLAG=false GEN_TLS=true PULL_BASE_FROM_DOCKERHUB=false
