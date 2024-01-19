@@ -1,7 +1,7 @@
 GIT_BRANCH="v2.10.0"
 
 # first step: clone harbor ARM code
-git clone https://github.com/goharbor/harbor-arm.git
+git clone https://github.com/alanpeng/harbor-arm.git
 
 # Replace dev-arm image tag
 sed -i "s#dev-arm#${GIT_BRANCH}-arm#g" harbor-arm/Makefile
