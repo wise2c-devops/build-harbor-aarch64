@@ -1,5 +1,3 @@
-GIT_BRANCH="v2.10.0"
-
 # Makefile for Harbor project
 #
 # Targets:
@@ -88,7 +86,7 @@ GEN_TLS=
 
 # version prepare
 # for docker image tag
-VERSIONTAG=${GIT_BRANCH}
+VERSIONTAG=dev
 # for base docker image tag
 BUILD_BASE=true
 PUSHBASEIMAGE=false
@@ -100,7 +98,7 @@ BASEIMAGENAMESPACE=goharbor
 PULL_BASE_FROM_DOCKERHUB=true
 
 # for harbor package name
-PKGVERSIONTAG=${GIT_BRANCH}
+PKGVERSIONTAG=dev
 
 PREPARE_VERSION_NAME=versions
 

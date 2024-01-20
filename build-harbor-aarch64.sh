@@ -11,6 +11,7 @@ cd harbor-arm
 git clone --branch ${GIT_BRANCH} https://github.com/goharbor/harbor.git src/github.com/goharbor/harbor
 cp -f ../harbor/Makefile src/github.com/goharbor/harbor/
 cp -f ../harbor/make/photon/Makefile src/github.com/goharbor/harbor/make/photon/
+cp -f ../harbor/src/portal/src/app/shared/components/about-dialog/about-dialog.component.html src/github.com/goharbor/harbor/src/portal/src/app/shared/components/about-dialog/
 
 # compile redis
 make compile_redis
