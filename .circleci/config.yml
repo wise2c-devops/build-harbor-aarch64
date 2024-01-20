@@ -11,7 +11,6 @@ jobs:
           command: |
             bash build-harbor-aarch64.sh
             docker images
-            #docker tag goharbor/prepare:${Harbor_Git_Tag}-arm goharbor/prepare:dev-arm
             mkdir all-in-one/harbor
             docker save $(docker images --format "{{.Repository}}:{{.Tag}}" | grep "^goharbor/"| grep "\-arm") | gzip > all-in-one/harbor/harbor.${Harbor_Git_Tag}.tar.gz
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/LICENSE -o all-in-one/harbor/LICENSE
@@ -19,7 +18,7 @@ jobs:
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/make/harbor.yml.tmpl -o all-in-one/harbor/harbor.yml.tmpl
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/make/install.sh -o all-in-one/harbor/install.sh
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/make/prepare -o all-in-one/harbor/prepare
-            sed -i 's#goharbor/prepare:dev#goharbor/prepare:${Harbor_Git_Tag}-arm#g' all-in-one/harbor/prepare
+            sed -i "s#goharbor/prepare:dev#goharbor/prepare:${Harbor_Git_Tag}-arm#g" all-in-one/harbor/prepare
             cd all-in-one
             chmod +x harbor/prepare harbor/install.sh
             tar zcf harbor-offline-installer-aarch64.tgz harbor
@@ -27,7 +26,6 @@ jobs:
             docker build -t alanpeng/harbor_images_aarch64:$Harbor_Git_Tag .
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker push alanpeng/harbor_images_aarch64:$Harbor_Git_Tag
-            #bash get-images.sh
   build-tags:
     environment:
       Harbor_Git_Tag: 'v2.10.0'
@@ -41,13 +39,13 @@ jobs:
             bash build-harbor-aarch64.sh
             docker images
             mkdir all-in-one/harbor
-            docker save $(docker images --format "{{.Repository}}:{{.Tag}}" | grep "^goharbor/") | gzip > all-in-one/harbor/harbor.${Harbor_Git_Tag}.tar.gz
+            docker save $(docker images --format "{{.Repository}}:{{.Tag}}" | grep "^goharbor/"| grep "\-arm") | gzip > all-in-one/harbor/harbor.${Harbor_Git_Tag}.tar.gz
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/LICENSE -o all-in-one/harbor/LICENSE
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/make/common.sh -o all-in-one/harbor/common.sh
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/make/harbor.yml.tmpl -o all-in-one/harbor/harbor.yml.tmpl
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/make/install.sh -o all-in-one/harbor/install.sh
             curl -L https://raw.githubusercontent.com/vmware/harbor/${Harbor_Git_Tag}/make/prepare -o all-in-one/harbor/prepare
-            sed -i 's#goharbor/prepare:dev#goharbor/prepare:${Harbor_Git_Tag}-arm#g' all-in-one/harbor/prepare
+            sed -i "s#goharbor/prepare:dev#goharbor/prepare:${Harbor_Git_Tag}-arm#g" all-in-one/harbor/prepare
             cd all-in-one
             chmod +x harbor/prepare harbor/install.sh
             tar zcf harbor-offline-installer-aarch64.tgz harbor
@@ -55,7 +53,6 @@ jobs:
             docker build -t alanpeng/harbor_images_aarch64:$Harbor_Git_Tag .
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker push alanpeng/harbor_images_aarch64:$Harbor_Git_Tag
-            #bash get-images.sh
 workflows:
   version: 2
   build-for-branches:
