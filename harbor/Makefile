@@ -1,3 +1,5 @@
+GIT_BRANCH="v2.10.0"
+
 # Makefile for Harbor project
 #
 # Targets:
@@ -76,7 +78,7 @@ CHECKENVCMD=checkenv.sh
 # parameters
 REGISTRYSERVER=
 REGISTRYPROJECTNAME=goharbor
-DEVFLAG=true
+DEVFLAG=false
 TRIVYFLAG=false
 HTTPPROXY=
 BUILDBIN=true
@@ -86,7 +88,7 @@ GEN_TLS=
 
 # version prepare
 # for docker image tag
-VERSIONTAG=dev
+VERSIONTAG=${GIT_BRANCH}
 # for base docker image tag
 BUILD_BASE=true
 PUSHBASEIMAGE=false
@@ -98,7 +100,7 @@ BASEIMAGENAMESPACE=goharbor
 PULL_BASE_FROM_DOCKERHUB=true
 
 # for harbor package name
-PKGVERSIONTAG=dev
+PKGVERSIONTAG=${GIT_BRANCH}
 
 PREPARE_VERSION_NAME=versions
 
