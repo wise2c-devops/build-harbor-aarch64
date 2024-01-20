@@ -9,6 +9,7 @@ sed -i "s#dev-arm#${GIT_BRANCH}-arm#g" harbor-arm/Makefile
 # execute build command：Download harbor source code
 cd harbor-arm
 git clone --branch ${GIT_BRANCH} https://github.com/alanpeng/harbor.git src/github.com/goharbor/harbor
+cp -f ../harbor/Makefile src/github.com/goharbor/harbor/
 #git clone https://github.com/alanpeng/harbor-multi-arch
 #echo $GIT_BRANCH > harbor-multi-arch/version
 #cd harbor-multi-arch
