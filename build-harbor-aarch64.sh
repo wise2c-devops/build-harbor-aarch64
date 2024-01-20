@@ -11,14 +11,6 @@ cd harbor-arm
 git clone --branch ${GIT_BRANCH} https://github.com/alanpeng/harbor.git src/github.com/goharbor/harbor
 cp -f ../harbor/Makefile src/github.com/goharbor/harbor/
 cp -f ../harbor/make/photon/Makefile src/github.com/goharbor/harbor/make/photon/
-#git clone https://github.com/alanpeng/harbor-multi-arch
-#echo $GIT_BRANCH > harbor-multi-arch/version
-#cd harbor-multi-arch
-#make all
-
-#cd ..
-#mkdir -p src/github.com/goharbor/
-#mv harbor-multi-arch/harbor src/github.com/goharbor/
 
 # compile redis:
 make compile_redis
