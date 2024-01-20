@@ -8,11 +8,11 @@ sed -i "s#dev-arm#${GIT_BRANCH}-arm#g" harbor-arm/Makefile
 
 # execute build command：Download harbor source code
 cd harbor-arm
-git clone --branch ${GIT_BRANCH} https://github.com/alanpeng/harbor.git src/github.com/goharbor/harbor
+git clone --branch ${GIT_BRANCH} https://github.com/goharbor/harbor.git src/github.com/goharbor/harbor
 cp -f ../harbor/Makefile src/github.com/goharbor/harbor/
 cp -f ../harbor/make/photon/Makefile src/github.com/goharbor/harbor/make/photon/
 
-# compile redis:
+# compile redis
 make compile_redis
 
 # Prepare to build arm architecture image data:
