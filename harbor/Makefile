@@ -144,7 +144,7 @@ GOBUILDIMAGE=golang:1.21.4
 GOBUILDPATHINCONTAINER=/harbor
 
 # go build
-PKG_PATH=github.com/alanpeng/harbor/src/pkg
+PKG_PATH=github.com/goharbor/harbor/src/pkg
 GITCOMMIT := $(shell git rev-parse --short=8 HEAD)
 RELEASEVERSION := $(shell cat VERSION)
 GOFLAGS="-buildvcs=false"
