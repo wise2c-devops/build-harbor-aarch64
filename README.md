@@ -42,3 +42,5 @@ vi harbor.yml
 ```
 install.sh
 ```
+
+![Harbor-v2 10 1-Aarch64](https://github.com/wise2c-devops/build-harbor-aarch64/assets/3273357/49ce7cc3-918e-421c-86d9-2c06e9b42bb3)
