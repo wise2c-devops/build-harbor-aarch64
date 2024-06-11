@@ -1,7 +1,7 @@
 jobs:
   build-branches:
     environment:
-      Harbor_Git_Tag: 'v2.10.2'
+      Harbor_Git_Tag: 'v2.11.0'
     machine: true
     resource_class: arm.medium
     steps:
@@ -28,7 +28,7 @@ jobs:
             docker push alanpeng/harbor_images_aarch64:$Harbor_Git_Tag
   build-tags:
     environment:
-      Harbor_Git_Tag: 'v2.10.2'
+      Harbor_Git_Tag: 'v2.11.0'
     machine: true
     resource_class: arm.medium
     steps:
