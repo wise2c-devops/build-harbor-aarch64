@@ -3,7 +3,7 @@ jobs:
     environment:
       Harbor_Git_Tag: 'v2.11.0'
     machine: true
-    resource_class: arm.medium
+    resource_class: amy/harbor
     steps:
       - checkout
       - run:
@@ -30,7 +30,7 @@ jobs:
     environment:
       Harbor_Git_Tag: 'v2.11.0'
     machine: true
-    resource_class: arm.medium
+    resource_class: amy/harbor
     steps:
       - checkout
       - run:
