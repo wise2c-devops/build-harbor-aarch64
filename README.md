@@ -9,12 +9,12 @@ How to get the harbor-offline-installer-aarch64 package?
 ### Option2 （方法二）
 下载离线镜像包
 ```
-docker pull alanpeng/harbor_images_aarch64:v2.11.0
+docker pull amy520/harbor_images_aarch64:v2.11.0
 ```
 
 创建一个新的容器实例
 ```
-TEMP_CONTAINER_ID=$(docker create alanpeng/harbor_images_aarch64:v2.11.0 /bin/true)
+TEMP_CONTAINER_ID=$(docker create amy520/harbor_images_aarch64:v2.11.0 /bin/true)
 ```
 
 从容器中拷贝文件

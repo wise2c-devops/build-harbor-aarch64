@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 定义目标仓库的前缀
-TARGET_REPO_PREFIX="alanpeng"
+TARGET_REPO_PREFIX="amy520"
 
 # 需要排除的关键字数组
 EXCLUDE_KEYWORDS=("golang" "node" "alpine")  # 你可以根据需要添加或删除关键字

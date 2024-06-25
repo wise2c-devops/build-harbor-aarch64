@@ -23,9 +23,9 @@ jobs:
             chmod +x harbor/prepare harbor/install.sh
             tar zcf harbor-offline-installer-aarch64.tgz harbor
             rm -rf harbor
-            docker build -t alanpeng/harbor_images_aarch64:$Harbor_Git_Tag .
+            docker build -t amy520/harbor_images_aarch64:$Harbor_Git_Tag .
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-            docker push alanpeng/harbor_images_aarch64:$Harbor_Git_Tag
+            docker push amy520/harbor_images_aarch64:$Harbor_Git_Tag
   build-tags:
     environment:
       Harbor_Git_Tag: 'v2.11.0'
@@ -50,9 +50,9 @@ jobs:
             chmod +x harbor/prepare harbor/install.sh
             tar zcf harbor-offline-installer-aarch64.tgz harbor
             rm -rf harbor
-            docker build -t alanpeng/harbor_images_aarch64:$Harbor_Git_Tag .
+            docker build -t amy520/harbor_images_aarch64:$Harbor_Git_Tag .
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-            docker push alanpeng/harbor_images_aarch64:$Harbor_Git_Tag
+            docker push amy520/harbor_images_aarch64:$Harbor_Git_Tag
 workflows:
   version: 2
   build-for-branches:
